@@ -22,12 +22,12 @@ public class MessengerBoardManager {
       return boardMan;
    }
    
-   public List<ApplicationBoard> boardList(int depart_no) throws SQLException {
-      return boardDAO.boardList(depart_no);
+   public List<ApplicationBoard> boardList(int department_no) throws SQLException {
+      return boardDAO.boardList(department_no);
    }
    
-   public ApplicationBoard showDetail(int depart_no, int board_no) throws SQLException {
-	   ApplicationBoard board = boardDAO.showDetail(depart_no, board_no);
+   public ApplicationBoard showDetail(int department_no, int board_no) throws SQLException {
+	   ApplicationBoard board = boardDAO.showDetail(department_no, board_no);
 	   
       return board;
    }

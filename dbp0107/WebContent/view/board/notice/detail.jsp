@@ -11,11 +11,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title> 공지사항 </title>
 <link rel=stylesheet href="<c:url value='/css/customer.css' />" type="text/css">
-<!-- <script>
-function boardRemove() {
-	return confirm("정말 삭제하시겠습니까?");		
-}
-</script> -->
+
 </head>
 <body>
 <!--  notice_board_no, title, contents, createtime, department_no, customer_name -->

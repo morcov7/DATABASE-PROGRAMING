@@ -4,7 +4,6 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import controller.Controller;
-import controller.customer.CustomerSessionUtils;
 import model.ApplicationBoard;
 import model.service.MessengerBoardManager;
 
@@ -14,14 +13,13 @@ public class ShowMBoardListController implements Controller{
 		// TODO Auto-generated method stub
 		MessengerBoardManager manager = MessengerBoardManager.getInstance();
 		
-		int depart_no = Integer.parseInt(request.getParameter("depart_no"));
+		int department_no = Integer.parseInt(request.getParameter("department_no"));
 		
-		List<ApplicationBoard> boardList = manager.boardList(depart_no);
-		request.setAttribute("curUserId", 
-				CustomerSessionUtils.getLoginCustomerId(request.getSession()));		
+		List<ApplicationBoard> boardList = manager.boardList(department_no);
+		
 		request.setAttribute("boardList", boardList);
 		
-		return "/view/board/showBoard.jsp";
+		return "/view/board/messenger/list.jsp";
 	}
 	
 }

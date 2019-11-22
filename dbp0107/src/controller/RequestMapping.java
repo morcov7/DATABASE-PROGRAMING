@@ -41,6 +41,9 @@ public class RequestMapping {
 		mappings.put("/view/board/notice/list", new ShowNBoardListController());
 		mappings.put("/view/board/notice/detail", new ShowNBoardController());
 		
+		mappings.put("/view/board/messenger/list", new ShowMBoardListController());
+		mappings.put("/view/board/messenger/detail", new ShowMBoardController());
+		
 		/*
 		 * mappings.put("/view/board/messenger/list", new ShowMBoardListController());
 		 * mappings.put("/view/board/messenger/detail", new ShowMBoardController());
