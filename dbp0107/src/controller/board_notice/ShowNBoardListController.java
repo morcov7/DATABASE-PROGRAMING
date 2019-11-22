@@ -14,9 +14,9 @@ public class ShowNBoardListController implements Controller{
 		// TODO Auto-generated method stub
 		NoticeBoardManager manager = NoticeBoardManager.getInstance();
 		
-		int departNo = Integer.parseInt(request.getParameter("depart_no"));
+		int department_no = Integer.parseInt(request.getParameter("department_no"));
 
-		List<NoticeBoard> boardList = manager.boardList(departNo);
+		List<NoticeBoard> boardList = manager.boardList(department_no);
 
 		request.setAttribute("boardList", boardList);
 		

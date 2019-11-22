@@ -24,12 +24,12 @@ public class NoticeBoardManager {
 		return boardMan;
 	}
 
-	public List<NoticeBoard> boardList(int depart_no) throws SQLException {
-		return boardDAO.boardList(depart_no);
+	public List<NoticeBoard> boardList(int department_no) throws SQLException {
+		return boardDAO.boardList(department_no);
 	}
 
-	public NoticeBoard showDetail(int depart_no, int board_no) throws SQLException {
-		NoticeBoard board = boardDAO.showDetail(depart_no, board_no);
+	public NoticeBoard showDetail(int department_no, int notice_board_no) throws SQLException {
+		NoticeBoard board = boardDAO.showDetail(department_no, notice_board_no);
 
 		return board;
 	}
