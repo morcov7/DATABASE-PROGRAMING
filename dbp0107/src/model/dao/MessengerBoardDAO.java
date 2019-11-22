@@ -12,15 +12,16 @@ public class MessengerBoardDAO {
 		jdbcUtil = new JDBCUtil();
 	}
 
-	//board/messenger/list/departmentno = ?
+	// board/messenger/list/departmentno = ?
 	public List<ApplicationBoard> boardList(int depart_no) throws SQLException {
 
 		// messenger_connect_board_no title createtime department_no name
+
 		String sql = "SELECT b.messenger_connect_board_no, b.title, b.createtime,"
 				+ "b.department_no, c.name AS customer_name" + "FROM messenger_connect_board b"
 				+ "INNER JOIN customer c ON b.customer_no = c.customer_no" + "WHERE b.department_no =?";
 
-		Object[] param = new Object[] {depart_no };
+		Object[] param = new Object[] { depart_no };
 		jdbcUtil.setSqlAndParameters(sql, param); // JDBCUtil에 update문과 매개 변수 설정
 
 		try {
@@ -46,8 +47,7 @@ public class MessengerBoardDAO {
 		return null;
 	}
 
-	
-	//board/messenger/list/departmentno = ? & boardno = ?
+	// board/messenger/list/departmentno = ? & boardno = ?
 	public ApplicationBoard showDetail(int depart_no, int board_no) throws SQLException {
 
 		// b.messenger_connect_board_no = 2 AND b.department_no = 9"
@@ -58,7 +58,7 @@ public class MessengerBoardDAO {
 
 		Object[] param1 = new Object[] { depart_no };
 		Object[] param2 = new Object[] { board_no };
-		
+
 		jdbcUtil.setSqlAndParameters(sql, param1, param2);
 		try {
 			ResultSet rs = jdbcUtil.executeQuery();

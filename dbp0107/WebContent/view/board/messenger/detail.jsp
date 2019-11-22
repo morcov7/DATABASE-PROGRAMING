@@ -2,7 +2,7 @@
 <%@page import="model.ApplicationBoard" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%-- <%@include file = "/view/board/department_menu.jsp"%> --%>
-<%@include file = "/view/board/department_menu.jsp"%>  
+<%@include file = "/view/department/main.jsp"%>  
 <%
 	ApplicationBoard board = (ApplicationBoard)request.getAttribute("board");
 %>
@@ -11,7 +11,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Messenger Board</title>
-<link rel=stylesheet href="<c:url value='/css/user.css' />" type="text/css">
+<link rel=stylesheet href="<c:url value='/css/customer.css' />" type="text/css">
 <script>
 function boardRemove() {
 	return confirm("정말 삭제하시겠습니까?");		
@@ -61,6 +61,5 @@ function boardRemove() {
 	    </c:if> 
 	    <br><br>
 
-<%-- <%@include file = "/view/footer.jsp"%> --%>
 </body>
 </html>

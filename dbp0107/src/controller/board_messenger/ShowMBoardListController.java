@@ -13,6 +13,7 @@ public class ShowMBoardListController implements Controller{
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
 		MessengerBoardManager manager = MessengerBoardManager.getInstance();
+		
 		int depart_no = Integer.parseInt(request.getParameter("depart_no"));
 		
 		List<ApplicationBoard> boardList = manager.boardList(depart_no);

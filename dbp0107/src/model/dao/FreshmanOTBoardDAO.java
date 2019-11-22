@@ -23,6 +23,7 @@ public class FreshmanOTBoardDAO {
 				+ "INNER JOIN customer c ON b.customer_no = c.customer_no" + "WHERE b.department_no =?";
 
 		Object[] param = new Object[] {depart_no };
+		
 		jdbcUtil.setSqlAndParameters(sql, param); // JDBCUtil에 update문과 매개 변수 설정
 
 		try {
@@ -52,7 +53,7 @@ public class FreshmanOTBoardDAO {
 	//board/freshmanot/list/departmentno = ? & boardno = ?
 	public ApplicationBoard showDetail(int depart_no, int board_no) throws SQLException {
 
-		// b.messenger_connect_board_no = 2 AND b.department_no = 9"
+		// b.freshmanOT_board_no = 2 AND b.department_no = 9"
 		String sql = "SELECT b.freshmanOT_board_no, b.title, b.contents, b.createtime,"
 				+ "b.application_check, b.department_no, c.name AS customer_name" + "FROM freshmanOT_board b"
 				+ "INNER JOIN customer c ON b.customer_no = c.customer_no" + "WHERE b.department_no =?"

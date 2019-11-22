@@ -11,6 +11,7 @@ import controller.board_notice.*;
 import controller.club.*;
 import controller.customer.*;
 import controller.littlemeeting.*;
+import controller.testmain.*;
 
 public class RequestMapping {
 	private static final Logger logger = LoggerFactory.getLogger(DispatcherServlet.class);
@@ -33,29 +34,31 @@ public class RequestMapping {
 		mappings.put("/customer/update", new UpdateCustomerController());
 		mappings.put("/customer/delete", new DeleteCustomerController());
 
-		//mappings.put("user/myPage", new MyPageController());
+		// mappings.put("user/myPage", new MyPageController());
 
+		mappings.put("/view/testMain", new ShowMainController());
+		
+		mappings.put("/view/board/notice/list", new ShowNBoardListController());
 		/*
-		 * mappings.put("/board/messenger/list", new ShowMBoardListController());
-		 * mappings.put("/board/messenger/detail", new ShowMBoardController());
+		 * mappings.put("/view/board/messenger/list", new ShowMBoardListController());
+		 * mappings.put("/view/board/messenger/detail", new ShowMBoardController());
+		 * 
 		 * mappings.put("/board/messenger/apply", new ApplyMessengerController());
 		 * mappings.put("/board/messenger/connect", new ConnectMessengerController());
 		 * 
-		 */
-		
-		/*
-		 * mappings.put("board/notice/list", new ShowNBoardListController());
-		 * mappings.put("board/notice/detail", new ShowNBoardController());
 		 * 
+		 * mappings.put("/view/board/notice/list", new ShowNBoardListController());
+		 * mappings.put("/view/board/notice/detail", new ShowNBoardController());
+		 * 
+		 * mappings.put("/view/board/freshmanot/list", new ShowFBoardListController());
+		 * mappings.put("/view/board/freshmanot/detail", new ShowFBoardController());
 		 */
-		
+
 		/*
-		 * mappings.put("/board/freshmanot/list", new ShowFBoardListController());
-		 * mappings.put("/board/freshmanot/detail", new ShowFBoardController());
 		 * mappings.put("/board/freshmanot/apply", new ApplyController());
 		 * mappings.put("/board/freshmanot/cancel", new CancelController());
 		 */
-		
+
 		/*
 		 * mappings.put("club/recommend", new ShowClubRecommendController());
 		 * mappings.put("club/list", new ShowClubListController());
@@ -63,7 +66,7 @@ public class RequestMapping {
 		 * mappings.put("club/search", new searchClubController());
 		 * 
 		 */
-		
+
 		/*
 		 * mappings.put("/littlemeeting/list", new ShowLMListController());
 		 * mappings.put("/littlemeeting/detail", new ShowLMDetailController());
@@ -73,8 +76,8 @@ public class RequestMapping {
 		 * mappings.put("/littlemeeting/write", new CreateLMController());
 		 * 
 		 */
-		
-		mappings.put("/littlemeeting/write/form", new ForwardController("/littlemeeting/write/form.jsp"));
+
+		//mappings.put("/littlemeeting/write/form", new ForwardController("/littlemeeting/write/form.jsp"));
 
 		logger.info("Initialized Request Mapping!");
 	}
