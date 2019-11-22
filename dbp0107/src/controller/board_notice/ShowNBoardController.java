@@ -3,7 +3,6 @@ package controller.board_notice;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import controller.Controller;
-import controller.customer.CustomerSessionUtils;
 import model.NoticeBoard;
 import model.service.NoticeBoardManager;
 
