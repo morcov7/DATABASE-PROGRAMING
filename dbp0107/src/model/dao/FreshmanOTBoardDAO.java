@@ -1,27 +1,29 @@
 package model.dao;
 
-import java.sql.*;
-import java.util.*;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import model.ApplicationBoard;
 
-public class MessengerBoardDAO {
+public class FreshmanOTBoardDAO {
 	private JDBCUtil jdbcUtil = null;
 
-	public MessengerBoardDAO() {
+	public FreshmanOTBoardDAO() {
 		jdbcUtil = new JDBCUtil();
 	}
 
-	// board/messenger/list/departmentno = ?
+	//board/freshmanot/list/departmentno = ?
 	public List<ApplicationBoard> boardList(int depart_no) throws SQLException {
 
-		// messenger_connect_board_no title createtime department_no name
-
-		String sql = "SELECT b.messenger_connect_board_no, b.title, b.createtime,"
-				+ "b.department_no, c.name AS customer_name" + "FROM messenger_connect_board b"
+		// freshmanOT_board_no title createtime department_no name
+		String sql = "SELECT b.freshmanOT_board_no, b.title, b.createtime,"
+				+ "b.department_no, c.name AS customer_name" + "FROM freshmanOT_board b"
 				+ "INNER JOIN customer c ON b.customer_no = c.customer_no" + "WHERE b.department_no =?";
 
-		Object[] param = new Object[] { depart_no };
+		Object[] param = new Object[] {depart_no };
+		
 		jdbcUtil.setSqlAndParameters(sql, param); // JDBCUtil에 update문과 매개 변수 설정
 
 		try {
@@ -33,7 +35,7 @@ public class MessengerBoardDAO {
 				java.util.Date utilDate = new java.util.Date(rs.getDate("createtime").getTime());
 				String date = df.format(utilDate);
 
-				ApplicationBoard board = new ApplicationBoard(rs.getInt("messenger_connect_board_no"),
+				ApplicationBoard board = new ApplicationBoard(rs.getInt("freshmanOT_board_no"),
 						rs.getString("title"), date, rs.getInt("department_no"), rs.getString("customer_name"));
 
 				boardList.add(board);
@@ -47,18 +49,19 @@ public class MessengerBoardDAO {
 		return null;
 	}
 
-	// board/messenger/list/departmentno = ? & boardno = ?
+	
+	//board/freshmanot/list/departmentno = ? & boardno = ?
 	public ApplicationBoard showDetail(int depart_no, int board_no) throws SQLException {
 
-		// b.messenger_connect_board_no = 2 AND b.department_no = 9"
-		String sql = "SELECT b.messenger_connect_board_no, b.title, b.contents, b.createtime,"
-				+ "b.application_check, b.department_no, c.name AS customer_name" + "FROM messenger_connect_board b"
+		// b.freshmanOT_board_no = 2 AND b.department_no = 9"
+		String sql = "SELECT b.freshmanOT_board_no, b.title, b.contents, b.createtime,"
+				+ "b.application_check, b.department_no, c.name AS customer_name" + "FROM freshmanOT_board b"
 				+ "INNER JOIN customer c ON b.customer_no = c.customer_no" + "WHERE b.department_no =?"
 				+ "ORDER BY b.createtime DESC";
 
 		Object[] param1 = new Object[] { depart_no };
 		Object[] param2 = new Object[] { board_no };
-
+		
 		jdbcUtil.setSqlAndParameters(sql, param1, param2);
 		try {
 			ResultSet rs = jdbcUtil.executeQuery();
@@ -66,7 +69,7 @@ public class MessengerBoardDAO {
 				java.text.DateFormat df = new java.text.SimpleDateFormat("yyyy/MM/dd");
 				java.util.Date utilDate = new java.util.Date(rs.getDate("createtime").getTime());
 				String date = df.format(utilDate);
-				ApplicationBoard board = new ApplicationBoard(rs.getInt("messenger_connect_board_no"),
+				ApplicationBoard board = new ApplicationBoard(rs.getInt("freshmanOT_board_no"),
 						rs.getString("title"), rs.getString("contents"), date, rs.getInt("application_check"),
 						rs.getInt("department_no"), rs.getString("customer_name"));
 

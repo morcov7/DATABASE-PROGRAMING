@@ -6,42 +6,34 @@ package model.dao;
 import java.sql.*;
 
 public class JDBCUtil {
-	private static ConnectionManager connMan = new ConnectionManager();  
-	private String sql = null; 				// 실행할 query
-	private Object[] parameters = null;; 	// PreparedStatement 의 매개변수 값을 저장하는 배열
+	private static ConnectionManager connMan = new ConnectionManager();
+	private String sql = null; // 실행할 query
+	private Object[] parameters1 = null; // PreparedStatement 의 매개변수 값을 저장하는 배열
+	private Object[] parameters2 = null; // PreparedStatement 의 매개변수 값을 저장하는 배열
+	private Object[] parameters3 = null;
 	private static Connection conn = null;
 	private PreparedStatement pstmt = null;
 	private CallableStatement cstmt = null;
 	private ResultSet rs = null;
-	private int resultSetType = ResultSet.TYPE_FORWARD_ONLY,
-				resultSetConcurrency = ResultSet.CONCUR_READ_ONLY;
+	private int resultSetType = ResultSet.TYPE_FORWARD_ONLY, resultSetConcurrency = ResultSet.CONCUR_READ_ONLY;
 
 	// 기본 생성자
-	public JDBCUtil() {	}
+	public JDBCUtil() {
+	}
 
 	/*
-	// 매개변수 없는 query를 전달받아 query를 설정하는 생성자
-	public JDBCUtil(String sql) {
-		this.setSql(sql);		
-	}
+	 * // 매개변수 없는 query를 전달받아 query를 설정하는 생성자 public JDBCUtil(String sql) {
+	 * this.setSql(sql); }
+	 * 
+	 * // 매개변수의 배열과 함께 query를 전달받아 각각을 설정하는 생성자 public JDBCUtil(String sql, Object[]
+	 * parameters) { this.setSql(sql); this.setParameters(parameters); }
+	 * 
+	 * // sql 변수 setter public void setSql(String sql) { this.sql = sql; }
+	 * 
+	 * // Object[] 변수 setter public void setParameters(Object[] parameters) {
+	 * this.parameters = parameters; }
+	 */
 
-	// 매개변수의 배열과 함께 query를 전달받아 각각을 설정하는 생성자
-	public JDBCUtil(String sql, Object[] parameters) {
-		this.setSql(sql);
-		this.setParameters(parameters);
-	}
-	
-	// sql 변수 setter
-	public void setSql(String sql) {
-		this.sql = sql;
-	}
-
-	// Object[] 변수 setter
-	public void setParameters(Object[] parameters) {
-		this.parameters = parameters;
-	}
-	*/
-	
 	// sql 변수 getter
 	public String getSql() {
 		return this.sql;
@@ -51,43 +43,63 @@ public class JDBCUtil {
 	private Object getParameter(int index) throws Exception {
 		if (index >= getParameterSize())
 			throw new Exception("INDEX 값이 파라미터의 갯수보다 많습니다.");
-		return parameters[index];
+		return parameters1[index];
 	}
 
 	// 매개변수의 개수를 반환하는 메소드
 	private int getParameterSize() {
-		return parameters == null ? 0 : parameters.length;
+		return parameters1 == null ? 0 : parameters1.length;
 	}
 
 	// sql 및 Object[] 변수 setter
-	public void setSqlAndParameters(String sql, Object[] parameters) {
+	public void setSqlAndParameters(String sql, Object[] parameters1) {
 		this.sql = sql;
-		this.parameters = parameters;
+		this.parameters1 = parameters1;
 		this.resultSetType = ResultSet.TYPE_FORWARD_ONLY;
 		this.resultSetConcurrency = ResultSet.CONCUR_READ_ONLY;
 	}
-	
-	// sql 및 Object[], resultSetType, resultSetConcurrency 변수 setter
-	public void setSqlAndParameters(String sql, Object[] parameters, int resultSetType, int resultSetConcurrency) {
+
+	// sql 및 Object[] 변수 setter
+	public void setSqlAndParameters(String sql, Object[] parameters1, Object[] parameters2) {
 		this.sql = sql;
-		this.parameters = parameters;
+		this.parameters1 = parameters1;
+		this.parameters2 = parameters2;
+		this.resultSetType = ResultSet.TYPE_FORWARD_ONLY;
+		this.resultSetConcurrency = ResultSet.CONCUR_READ_ONLY;
+	}
+
+	// sql 및 Object[] 변수 setter
+	public void setSqlAndParameters(String sql, Object[] parameters1, Object[] parameters2, Object[] parameters3) {
+		this.sql = sql;
+		this.parameters1 = parameters1;
+		this.parameters2 = parameters2;
+		this.parameters3 = parameters3;
+		this.resultSetType = ResultSet.TYPE_FORWARD_ONLY;
+		this.resultSetConcurrency = ResultSet.CONCUR_READ_ONLY;
+	}
+
+	// sql 및 Object[], resultSetType, resultSetConcurrency 변수 setter
+	public void setSqlAndParameters(String sql, Object[] parameters1, int resultSetType, int resultSetConcurrency) {
+		this.sql = sql;
+		this.parameters1 = parameters1;
 		this.resultSetType = resultSetType;
 		this.resultSetConcurrency = resultSetConcurrency;
 	}
 
-	// 현재의  PreparedStatement를 반환
+	// 현재의 PreparedStatement를 반환
 	private PreparedStatement getPreparedStatement() throws SQLException {
 		if (conn == null) {
 			conn = connMan.getConnection();
 			conn.setAutoCommit(false);
 		}
-		if (pstmt != null) pstmt.close();
+		if (pstmt != null)
+			pstmt.close();
 		pstmt = conn.prepareStatement(sql, resultSetType, resultSetConcurrency);
 		// JDBCUtil.printDataSourceStats(ds);
 		return pstmt;
 	}
 
-	// JDBCUtil의 쿼리와 매개변수를 이용해  executeQuery를 수행하는 메소드
+	// JDBCUtil의 쿼리와 매개변수를 이용해 executeQuery를 수행하는 메소드
 	public ResultSet executeQuery() {
 		try {
 			pstmt = getPreparedStatement();
@@ -116,18 +128,19 @@ public class JDBCUtil {
 		return pstmt.executeUpdate();
 	}
 
-	// 현재의  CallableStatement를 반환
+	// 현재의 CallableStatement를 반환
 	private CallableStatement getCallableStatement() throws SQLException {
 		if (conn == null) {
 			conn = connMan.getConnection();
 			conn.setAutoCommit(false);
 		}
-		if (cstmt != null) cstmt.close();
+		if (cstmt != null)
+			cstmt.close();
 		cstmt = conn.prepareCall(sql);
 		return cstmt;
 	}
 
-	// JDBCUtil의 쿼리와 매개변수를 이용해  CallableStatement의  execute를 수행하는 메소드
+	// JDBCUtil의 쿼리와 매개변수를 이용해 CallableStatement의 execute를 수행하는 메소드
 	public boolean execute(JDBCUtil source) throws SQLException, Exception {
 		cstmt = getCallableStatement();
 		for (int i = 0; i < source.getParameterSize(); i++) {
@@ -198,4 +211,42 @@ public class JDBCUtil {
 	public void printDataSourceStats() {
 		connMan.printDataSourceStats();
 	}
+	
+	
+	
+	   // PK 컬럼 이름 배열을 이용하여 PreparedStatement를 생성 (INSERT문에서 Sequence를 통해 PK 값을 생성하는 경우)
+    private PreparedStatement getPreparedStatement(String[] columnNames) throws SQLException {
+       if (conn == null) {
+          conn = connMan.getConnection();
+          conn.setAutoCommit(false);
+       }
+       if (pstmt != null)
+          pstmt.close();
+       pstmt = conn.prepareStatement(sql, columnNames);
+       return pstmt;
+    }
+ // 위 메소드를 이용하여 PreparedStatement를 생성한 후 executeUpdate 실행
+    public int executeUpdate(String[] columnNames) throws SQLException, Exception {
+       pstmt = getPreparedStatement(columnNames); // 위 메소드를 호출
+       int parameterSize = getParameterSize();
+       for (int i = 0; i < parameterSize; i++) {
+          if (getParameter(i) == null) { // 매개변수 값이 널이 부분이 있을 경우
+             pstmt.setString(i + 1, null);
+          } else {
+             pstmt.setObject(i + 1, getParameter(i));
+          }
+       }
+       return pstmt.executeUpdate();
+    }
+    
+ // PK 컬럼의 값(들)을 포함하는 ResultSet 객체 구하기
+    public ResultSet getGeneratedKeys() {
+       try {
+          return pstmt.getGeneratedKeys();
+       } catch (SQLException e) {
+          e.printStackTrace();
+       }
+       return null;
+    }
+    
 }

@@ -1,7 +1,0 @@
-INDEX VERSION 1.4+C:\Users\choiyewon\Desktop\dbp-project\Database-Programming-Project\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-382073714.index
-2678870294.index
-324205685.index
-849147002.index
-1077100289.index
-3723770962.index
