@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Notice Board</title>
+<title>공지사항</title>
 </head>
 <body link="black" vlink="black" alink="black">
 <table align = "center" width = "70%" class="list">

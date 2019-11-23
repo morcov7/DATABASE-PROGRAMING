@@ -3,7 +3,7 @@ package model.dao;
 import java.sql.*;
 import java.util.*;
 
-import model.ApplicationBoard;
+import model.FreshmanOTBoard;
 
 public class FreshmanOTBoardDAO {
 	private JDBCUtil jdbcUtil = null;
@@ -13,7 +13,7 @@ public class FreshmanOTBoardDAO {
 	}
 
 	//board/freshmanot/list/departmentno = ?
-	public List<ApplicationBoard> boardList(int department_no) throws SQLException {
+	public List<FreshmanOTBoard> boardList(int department_no) throws SQLException {
 
 		// freshmanOT_board_no title createtime department_no name
 		
@@ -36,10 +36,10 @@ public class FreshmanOTBoardDAO {
 
 		try {
 			ResultSet rs = jdbcUtil.executeQuery();
-			List<ApplicationBoard> boardList = new ArrayList<ApplicationBoard>();
+			List<FreshmanOTBoard> boardList = new ArrayList<FreshmanOTBoard>();
 			
 			while (rs.next()) {
-				ApplicationBoard board = new ApplicationBoard(
+				FreshmanOTBoard board = new FreshmanOTBoard(
 						rs.getInt("freshmanOT_board_no"),
 						rs.getString("title"), 
 						rs.getDate("createtime"),
@@ -59,7 +59,7 @@ public class FreshmanOTBoardDAO {
 
 	
 	//board/freshmanot/list/departmentno = ? & boardno = ?
-	public ApplicationBoard showDetail(int department_no, int board_no) throws SQLException {
+	public FreshmanOTBoard showDetail(int department_no, int freshmanOT_board_no) throws SQLException {
 
 		// b.freshmanOT_board_no = 2 AND b.department_no = 9"
 		String sql = "SELECT b.freshmanOT_board_no, b.title, b.contents, b.createtime, "
@@ -70,13 +70,13 @@ public class FreshmanOTBoardDAO {
 				+ "AND b.freshmanOT_board_no = ? " ;
 				
 		Object[] param1 = new Object[] { department_no };
-		Object[] param2 = new Object[] { board_no };
+		Object[] param2 = new Object[] { freshmanOT_board_no };
 		
 		jdbcUtil.setSqlAndParameters(sql, param1, param2);
 		try {
 			ResultSet rs = jdbcUtil.executeQuery();
 			if (rs.next()) {
-				ApplicationBoard board = new ApplicationBoard(
+				FreshmanOTBoard board = new FreshmanOTBoard(
 						rs.getInt("freshmanOT_board_no"),
 						rs.getString("title"),
 						rs.getString("contents"), 

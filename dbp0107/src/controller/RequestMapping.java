@@ -34,8 +34,6 @@ public class RequestMapping {
 		mappings.put("/customer/update", new UpdateCustomerController());
 		mappings.put("/customer/delete", new DeleteCustomerController());
 
-		// mappings.put("user/myPage", new MyPageController());
-
 		mappings.put("/view/testMain", new ShowMainController());
 		
 		mappings.put("/view/board/notice/list", new ShowNBoardListController());
@@ -43,6 +41,11 @@ public class RequestMapping {
 		
 		mappings.put("/view/board/messenger/list", new ShowMBoardListController());
 		mappings.put("/view/board/messenger/detail", new ShowMBoardController());
+		
+		mappings.put("/view/board/freshmanot/list", new ShowFBoardListController());
+		mappings.put("/view/board/freshmanot/detail", new ShowFBoardController());
+		
+		// mappings.put("user/myPage", new MyPageController());
 		
 		/*
 		 * mappings.put("/view/board/messenger/list", new ShowMBoardListController());

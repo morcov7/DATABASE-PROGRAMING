@@ -3,7 +3,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file = "/view/department/main.jsp"%>  
 <%
-	ApplicationBoard board = (ApplicationBoard)request.getAttribute("board");
+	MessengerBoard board = (MessengerBoard)request.getAttribute("board");
 %>
 <!DOCTYPE html>
 <html>
@@ -17,7 +17,7 @@
 <table align = "center" style="width:30%" class="list">
 <tr>
 		<td width = "150" align = "center" height = "40">번호</td>
-		<td width = "400" align = "center" heigth = "40">${board.board_no}</td>
+		<td width = "400" align = "center" heigth = "40">${board.messenger_connect_board_no}</td>
 	</tr>
 	<tr>
 		<td width = "150" align = "center" height = "40">제목</td>
