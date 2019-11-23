@@ -3,7 +3,7 @@ package model.service;
 
 import java.util.List;
 import java.sql.SQLException;
-import model.ApplicationBoard;
+import model.MessengerBoard;
 import model.dao.MessengerBoardDAO;
 
 public class MessengerBoardManager {
@@ -22,12 +22,12 @@ public class MessengerBoardManager {
       return boardMan;
    }
    
-   public List<ApplicationBoard> boardList(int department_no) throws SQLException {
+   public List<MessengerBoard> boardList(int department_no) throws SQLException {
       return boardDAO.boardList(department_no);
    }
    
-   public ApplicationBoard showDetail(int department_no, int board_no) throws SQLException {
-	   ApplicationBoard board = boardDAO.showDetail(department_no, board_no);
+   public MessengerBoard showDetail(int department_no, int messenger_connect_board_no) throws SQLException {
+	   MessengerBoard board = boardDAO.showDetail(department_no, messenger_connect_board_no);
 	   
       return board;
    }

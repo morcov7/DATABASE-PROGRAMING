@@ -3,7 +3,7 @@ package model.dao;
 import java.sql.*;
 import java.util.*;
 
-import model.ApplicationBoard;
+import model.MessengerBoard;
 
 public class MessengerBoardDAO {
 	private JDBCUtil jdbcUtil = null;
@@ -13,7 +13,7 @@ public class MessengerBoardDAO {
 	}
 
 	// board/messenger/list/departmentno = ?
-	public List<ApplicationBoard> boardList(int department_no) throws SQLException {
+	public List<MessengerBoard> boardList(int department_no) throws SQLException {
 
 		// messenger_connect_board_no title createtime department_no name
 
@@ -28,10 +28,10 @@ public class MessengerBoardDAO {
 
 		try {
 			ResultSet rs = jdbcUtil.executeQuery();
-			List<ApplicationBoard> boardList = new ArrayList<ApplicationBoard>();
+			List<MessengerBoard> boardList = new ArrayList<MessengerBoard>();
 			
 			while (rs.next()) {
-				ApplicationBoard board = new ApplicationBoard(
+				MessengerBoard board = new MessengerBoard(
 						rs.getInt("messenger_connect_board_no"),
 						rs.getString("title"), 
 						rs.getDate("createtime"),
@@ -50,7 +50,7 @@ public class MessengerBoardDAO {
 	}
 
 	// board/messenger/list/departmentno = ? & boardno = ?
-	public ApplicationBoard showDetail(int department_no, int board_no) throws SQLException {
+	public MessengerBoard showDetail(int department_no, int messenger_connect_board_no) throws SQLException {
 
 		// b.messenger_connect_board_no = 2 AND b.department_no = 9"
 		String sql = "SELECT b.messenger_connect_board_no, b.title, b.contents, b.createtime, "
@@ -61,13 +61,13 @@ public class MessengerBoardDAO {
 				+ "AND b.messenger_connect_board_no = ? " ;
 
 		Object[] param1 = new Object[] { department_no };
-		Object[] param2 = new Object[] { board_no };
+		Object[] param2 = new Object[] { messenger_connect_board_no };
 
 		jdbcUtil.setSqlAndParameters(sql, param1, param2);
 		try {
 			ResultSet rs = jdbcUtil.executeQuery();
 			if (rs.next()) {
-				ApplicationBoard board = new ApplicationBoard(
+				MessengerBoard board = new MessengerBoard(
 						rs.getInt("messenger_connect_board_no"),
 						rs.getString("title"),
 						rs.getString("contents"), 

@@ -6,24 +6,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import controller.Controller;
-import controller.customer.CustomerSessionUtils;
-import model.ApplicationBoard;
-import model.service.FreshmanotBoardManager;
+import model.FreshmanOTBoard;
+import model.service.FreshmanOTBoardManager;
 
 public class ShowFBoardListController implements Controller{
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
-		FreshmanotBoardManager manager = FreshmanotBoardManager.getInstance();
+		FreshmanOTBoardManager manager = FreshmanOTBoardManager.getInstance();
 		
-		int departNo = Integer.parseInt(request.getParameter("depart_no"));
+		int department_no = Integer.parseInt(request.getParameter("department_no"));
 
-		List<ApplicationBoard> boardList = manager.boardList(departNo);
-		/*
-		 * request.setAttribute("curUserId",
-		 * CustomerSessionUtils.getLoginCustomerId(request.getSession()));
-		 */
+		List<FreshmanOTBoard> boardList = manager.boardList(department_no);
+
 		request.setAttribute("boardList", boardList);
 		
 		return "/view/board/freshmanot/list.jsp";

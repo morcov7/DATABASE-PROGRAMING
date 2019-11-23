@@ -1,10 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@page import="model.ApplicationBoard" %>
+<%@page import="model.FreshmanOTBoard" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%-- <%@include file = "/view/board/department_menu.jsp"%> --%>
 <%@include file = "/view/department/main.jsp"%>  
 <%
-	ApplicationBoard board = (ApplicationBoard)request.getAttribute("board");
+	FreshmanOTBoard board = (FreshmanOTBoard)request.getAttribute("board");
 %>
 <!DOCTYPE html>
 <html>
@@ -12,11 +11,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Messenger Board</title>
 <link rel=stylesheet href="<c:url value='/css/customer.css' />" type="text/css">
-<script>
-function boardRemove() {
-	return confirm("정말 삭제하시겠습니까?");		
-}
-</script>
+
 </head>
 <body>
 <table align = "center" style="width:30%" class="list">
@@ -35,9 +30,7 @@ function boardRemove() {
 	<tr>
 		<td width = "150" align = "center" height = "150">답변</td>
 		<td width = "400" align = "center" height = "150">${board.customer_name}
-			<c:if test="${empty board.answer}">
-				판매자가 아직 답변을 등록하지 않았습니다.
-			</c:if>
+			
 		</td>
 	</tr>
 </table>
