@@ -60,10 +60,11 @@ public class MessengerBoardDAO {
 				+ "WHERE b.department_no = ? "
 				+ "AND b.messenger_connect_board_no = ? " ;
 
-		Object[] param1 = new Object[] { department_no };
-		Object[] param2 = new Object[] { messenger_connect_board_no };
-
-		jdbcUtil.setSqlAndParameters(sql, param1, param2);
+		
+		Object[] param = new Object[] { department_no, messenger_connect_board_no };
+		jdbcUtil.setSqlAndParameters(sql, param);
+		
+		
 		try {
 			ResultSet rs = jdbcUtil.executeQuery();
 			if (rs.next()) {

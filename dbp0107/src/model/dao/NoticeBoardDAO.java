@@ -68,10 +68,9 @@ public class NoticeBoardDAO {
 				"WHERE b.department_no = ? " +
 				"AND b.notice_board_no = ? " ;
 
-		Object[] param1 = new Object[] { department_no };
-		Object[] param2 = new Object[] { notice_board_no };
-
-		jdbcUtil.setSqlAndParameters(sql, param1, param2);
+		 		
+		Object[] param = new Object[] { department_no, notice_board_no };
+		jdbcUtil.setSqlAndParameters(sql, param);
 		
 		try {
 			ResultSet rs = jdbcUtil.executeQuery();

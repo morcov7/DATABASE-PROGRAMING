@@ -9,50 +9,45 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Messenger Board</title>
+<title> 새내기 배움터 신청 </title>
 <link rel=stylesheet href="<c:url value='/css/customer.css' />" type="text/css">
 
 </head>
 <body>
 <table align = "center" style="width:30%" class="list">
+<tr>
+		<td width = "150" align = "center" height = "40">번호</td>
+		<td width = "400" align = "center" heigth = "40">${board.freshmanOT_board_no}</td>
+	</tr>
 	<tr>
 		<td width = "150" align = "center" height = "40">제목</td>
 		<td width = "400" align = "center" heigth = "40">${board.title}</td>
 	</tr>
 	<tr>
-		<td width = "150" align = "center" height = "40">등록 날짜</td>
-		<td width = "400" align = "center" heigth = "40">${board.date}</td>
+		<td width = "150" align = "center" height = "40">작성일</td>
+		<td width = "400" align = "center" heigth = "40">${board.createtime}</td>
+	</tr>
+	<tr>
+		<td width = "150" align = "center" height = "150">작성자</td>
+		<td width = "400" align = "center" height = "150">${board.customer_name}</td>
 	</tr>
 	<tr>
 		<td width = "150" align = "center" height = "150">내용</td>
 		<td width = "400" align = "center" height = "150">${board.contents}</td>
 	</tr>
-	<tr>
-		<td width = "150" align = "center" height = "150">답변</td>
-		<td width = "400" align = "center" height = "150">${board.customer_name}
-			
-		</td>
-	</tr>
+	
 </table>
+
+<!--  ********신청 url 변경해야함!!!!!******** -->
 <div style="text-align:center" class="list">
-	    <a href="<c:url value='/view/board/update/form'>
-	     		   <c:param name='boardNo' value="${board.boardno}"/>
-	     		   <c:param name='userId' value='${board.id}' />
-			 	 </c:url>">수정</a> &nbsp;
- 	    <a href="<c:url value='/view/board/remove'>
-				   <c:param name='boardNo' value='${board.boardno}'/>
-				   <c:param name='userId' value='${board.id}' />
-			 	 </c:url>" onclick="return boardRemove();">삭제</a> &nbsp;
-		<a href="<c:url value='/view/board/answer/form'>
-	     		   <c:param name='boardNo' value='${board.boardno}'/>
-			 	 </c:url>">답변</a> &nbsp;
- 	    <a href="<c:url value='/view/board/list' />">목록</a>
+	    <a href="<c:url value='/view/testMain'> 
+	     		   <c:param name='boardNo' value="${board.department_no}"/>
+			 	 </c:url>">신청</a> &nbsp;
+ 	    
+ 	    <a href="<c:url value='/view/testMain' />">목록</a>
  </div> 	    
- 	    <br><br>
- 	    <c:if test="${updateFailed || deleteFailed || answerFailed}">
-	      <font color="red"><c:out value="${exception.getMessage()}" /></font>
-	    </c:if> 
-	    <br><br>
+<br><br>
+ 	    
 
 </body>
 </html>

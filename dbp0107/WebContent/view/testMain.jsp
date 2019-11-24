@@ -15,20 +15,20 @@
 	</tr>
 	<c:forEach var="department" items="${departList}">
 		<tr>
-			<%-- <td width = "100" align = "center" height = "22">${department.department_no}</td>
+			<td width = "100" align = "center" height = "22">${department.department_no}</td>
 			<td width = "400" align = "center" height = "22">
 				<a href="<c:url value='/view/board/notice/list'>
 						   <c:param name="department_no" value='${department.department_no}'/>
 				 		 </c:url>">
 				${department.dept_name}</a>
-			</td> --%>
+			</td>
 			
-			<%-- <td width = "400" align = "center" height = "22">
+			<td width = "400" align = "center" height = "22">
 				<a href="<c:url value='/view/board/messenger/list'>
 						   <c:param name="department_no" value='${department.department_no}'/>
 				 		 </c:url>">
 				${department.dept_name}</a>
-			</td> --%>
+			</td>
 			
 			
 			<td width = "400" align = "center" height = "22">

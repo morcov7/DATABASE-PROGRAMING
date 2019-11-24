@@ -18,7 +18,7 @@
 		<li>
 			<a href="<c:url value='/view/board/notice/list' >
 						   <c:param name="department_no" value='${department.department_no}'/>
-				 		 </c:url>">공지사항 </a>
+				 		 </c:url>" class="list">공지사항 </a>
 		</li>
 		<li>
 			<a href="<c:url value='/view/board/freshmanot/list' />" class="list">새내기 배움터 신청  </a>
