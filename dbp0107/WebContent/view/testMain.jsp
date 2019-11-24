@@ -31,12 +31,12 @@
 			</td>
 			
 			
-			<%-- <td width = "400" align = "center" height = "22">
+			<td width = "400" align = "center" height = "22">
 				<a href="<c:url value='/view/board/freshmanot/list'>
 						   <c:param name="department_no" value='${department.department_no}'/>
 				 		 </c:url>">
 				${department.dept_name}</a>
-			</td> --%>
+			</td>
 
 		</tr>
 	</c:forEach> 
