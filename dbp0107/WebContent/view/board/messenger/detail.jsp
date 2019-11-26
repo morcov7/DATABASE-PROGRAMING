@@ -17,21 +17,21 @@
 
 </head>
 <body>
-  <dl class="row" style="margin-left:10%">
-	  <dt class="col-sm-3">번호</dt>
-	  <dd class="col-sm-9">${board.messenger_connect_board_no}</dd>
+  <dl class="row" style="margin-left:30%" align = "center">
+	  <dt class="col-sm-2">번호</dt>
+	  <dd class="col-sm-10">${board.messenger_connect_board_no}</dd>
 	
-	  <dt class="col-sm-3">제목</dt>
-	  <dd class="col-sm-9">${board.title}</dd>
+	  <dt class="col-sm-2">제목</dt>
+	  <dd class="col-sm-10">${board.title}</dd>
 	  	
-	  <dt class="col-sm-3">작성일</dt>
-	  <dd class="col-sm-9">${board.createtime}</dd>
+	  <dt class="col-sm-2">작성일</dt>
+	  <dd class="col-sm-10">${board.createtime}</dd>
 	  	
-	  <dt class="col-sm-3">작성자</dt>
-	  <dd class="col-sm-9">${board.customer_name}</dd>
+	  <dt class="col-sm-2">작성자</dt>
+	  <dd class="col-sm-10">${board.customer_name}</dd>
 	  	  	
-	  <dt class="col-sm-3">내용</dt>
-	  <dd class="col-sm-9">${board.contents}</dd>
+	  <dt class="col-sm-2">내용</dt>
+	  <dd class="col-sm-10">${board.contents}</dd>
   </dl>
 
 <!--  ********신청 url 변경해야함!!!!!******** -->
@@ -40,6 +40,9 @@
 	    		   <c:param name="messenger_connect_board_no" value='${board.messenger_connect_board_no}'/>
 		 		   <c:param name='department_no' value="${board.department_no}"/>
 			 	 </c:url>">연결</a> &nbsp;
+ 	    
+ 	    <!-- 경로 지정 맞게 해줬는데 왜 안되는가?	 --> 
+ 	   <%--  <a href="<c:url value='/view/board/messenger/list' />">목록</a> --%>
  	    
  	    <a href="<c:url value='/view/testMain' />">목록</a>
  </div> 	

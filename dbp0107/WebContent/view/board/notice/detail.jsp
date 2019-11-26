@@ -17,7 +17,7 @@
 </head>
 <body>
 <!--  notice_board_no, title, contents, createtime, department_no, customer_name -->
-<dl class="row" style="margin-left:10%">
+<dl class="row" style="margin-left:10%" align = "center">
 	  <dt class="col-sm-3">번호</dt>
 	  <dd class="col-sm-9">${board.notice_board_no}</dd>
 	
@@ -35,7 +35,11 @@
   </dl>
 	
 </table>
-<div style="text-align:center" class="list">		 	 
+<div style="text-align:center" class="list">	
+
+
+		<!-- 경로 지정 맞게 해줬는데 왜 안되는가?	 --> 
+ 	   <%--  <a href="<c:url value='/view/board/notice/list' />">목록</a> --%>
  	    <a href="<c:url value='/view/testMain' />">목록</a>
  </div> 	    
  	    <br><br>
