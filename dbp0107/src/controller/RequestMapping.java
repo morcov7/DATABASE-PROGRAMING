@@ -35,18 +35,30 @@ public class RequestMapping {
 		mappings.put("/customer/delete", new DeleteCustomerController());
 
 		mappings.put("/view/testMain", new ShowMainController());
-		
+
 		mappings.put("/view/board/notice/list", new ShowNBoardListController());
 		mappings.put("/view/board/notice/detail", new ShowNBoardController());
-		
+
 		mappings.put("/view/board/messenger/list", new ShowMBoardListController());
 		mappings.put("/view/board/messenger/detail", new ShowMBoardController());
-		
+
 		mappings.put("/view/board/freshmanot/list", new ShowFBoardListController());
 		mappings.put("/view/board/freshmanot/detail", new ShowFBoardController());
-		
+
+		/*
+		 * mappings.put("/littlemeeting/list", new ShowLMListController());
+		 * mappings.put("/littlemeeting/detail", new ShowLMDetailController()); //
+		 * mappings.put("/lm/apply", new ApplyLMController()); //
+		 * mappings.put("/lm/cancel", new CalcelLMController());
+		 * mappings.put("/littlemeeting/delete", new DeleteLMController());
+		 * 
+		 * mappings.put("/littlemeeting/write/form", new
+		 * ForwardController("/lm/writeForm.jsp")); mappings.put("/littlemeeting/write",
+		 * new CreateLMController());
+		 */
+
 		// mappings.put("user/myPage", new MyPageController());
-		
+
 		/*
 		 * mappings.put("/view/board/messenger/list", new ShowMBoardListController());
 		 * mappings.put("/view/board/messenger/detail", new ShowMBoardController());
@@ -85,7 +97,8 @@ public class RequestMapping {
 		 * 
 		 */
 
-		//mappings.put("/littlemeeting/write/form", new ForwardController("/littlemeeting/write/form.jsp"));
+		// mappings.put("/littlemeeting/write/form", new
+		// ForwardController("/littlemeeting/write/form.jsp"));
 
 		logger.info("Initialized Request Mapping!");
 	}

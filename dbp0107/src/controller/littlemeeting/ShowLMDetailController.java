@@ -1,5 +1,6 @@
 package controller.littlemeeting;
 
-public class ShowLMDetailController {
 
+
+public class ShowLMDetailController {
 }

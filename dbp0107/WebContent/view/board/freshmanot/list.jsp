@@ -1,21 +1,25 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="java.util.*" %>
 <%@page import="model.FreshmanOTBoard" %>
+<%-- <%@include file = "/main_banner.jsp"%>  --%>
 <%@include file = "/view/department/main.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>새내기 배움터 신청</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 </head>
 <body link="black" vlink="black" alink="black">
-<table align = "center" width = "70%" class="list">
+
+<table style="width:85%" class="table table-bordered" align = "center" width = "70%">
 	<tr>
-		<td width = "100" align = "center" height = "22">번호</td>
-		<td width = "400" align = "center" height = "22">제목</td>
-		<td width = "200" align = "center" height = "22">작성일</td>
-		<td width = "200" align = "center" height = "22">작성자</td>
+		<td width = "100" align = "center" height = "22" bgcolor="#F1E1E3">번호</td>
+		<td width = "400" align = "center" height = "22" bgcolor="#F1E1E3">제목</td>
+		<td width = "200" align = "center" height = "22" bgcolor="#F1E1E3">작성일</td>
+		<td width = "200" align = "center" height = "22" bgcolor="#F1E1E3">작성자</td>
 	</tr>
 	<c:forEach var="board" items="${boardList}">
 		<tr>
