@@ -1,5 +1,5 @@
 package controller.littlemeeting;
 
-public class CreateLMController {
 
+public class CreateLMController {
 }

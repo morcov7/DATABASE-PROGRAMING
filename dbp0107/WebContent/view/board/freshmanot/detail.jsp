@@ -1,6 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@page import="model.FreshmanOTBoard" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%-- <%@include file = "/main_banner.jsp"%>  --%>
 <%@include file = "/view/department/main.jsp"%>  
 <%
 	FreshmanOTBoard board = (FreshmanOTBoard)request.getAttribute("board");
@@ -11,32 +12,26 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title> 새내기 배움터 신청 </title>
 <link rel=stylesheet href="<c:url value='/css/customer.css' />" type="text/css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 </head>
 <body>
-<table align = "center" style="width:30%" class="list">
-<tr>
-		<td width = "150" align = "center" height = "40">번호</td>
-		<td width = "400" align = "center" heigth = "40">${board.freshmanOT_board_no}</td>
-	</tr>
-	<tr>
-		<td width = "150" align = "center" height = "40">제목</td>
-		<td width = "400" align = "center" heigth = "40">${board.title}</td>
-	</tr>
-	<tr>
-		<td width = "150" align = "center" height = "40">작성일</td>
-		<td width = "400" align = "center" heigth = "40">${board.createtime}</td>
-	</tr>
-	<tr>
-		<td width = "150" align = "center" height = "150">작성자</td>
-		<td width = "400" align = "center" height = "150">${board.customer_name}</td>
-	</tr>
-	<tr>
-		<td width = "150" align = "center" height = "150">내용</td>
-		<td width = "400" align = "center" height = "150">${board.contents}</td>
-	</tr>
+  <dl class="row" style="margin-left:10%">
+	  <dt class="col-sm-3">번호</dt>
+	  <dd class="col-sm-9">${board.freshmanOT_board_no}</dd>
 	
-</table>
+	  <dt class="col-sm-3">제목</dt>
+	  <dd class="col-sm-9">${board.title}</dd>
+	  	
+	  <dt class="col-sm-3">작성일</dt>
+	  <dd class="col-sm-9">${board.createtime}</dd>
+	  	
+	  <dt class="col-sm-3">작성자</dt>
+	  <dd class="col-sm-9">${board.customer_name}</dd>
+	  	  	
+	  <dt class="col-sm-3">내용</dt>
+	  <dd class="col-sm-9">${board.contents}</dd>
+  </dl>
 
 <!--  ********신청 url 변경해야함!!!!!******** -->
 <div style="text-align:center" class="list">
