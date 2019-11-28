@@ -39,11 +39,10 @@
 	     		   <c:param name='boardNo' value="${board.department_no}"/>
 			 	 </c:url>">신청</a> &nbsp;
 			 	 
-			 	 
- 	    <!-- 경로 지정 맞게 해줬는데 왜 안되는가?	 --> 
- 	   <%--  <a href="<c:url value='/view/board/freshmanot/list' />">목록</a> --%>
  	    
- 	    <a href="<c:url value='/view/testMain' />">목록</a>
+ 	    <a href="<c:url value='/view/board/freshmanot/list'> 
+	     		   <c:param name='department_no' value="${board.department_no}"/>
+			 	 </c:url>">목록</a> &nbsp;
  </div> 	    
 <br><br>
  	    
