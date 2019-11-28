@@ -12,8 +12,10 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 </head>
-<body  style="width:85%" class="table table-bordered" link="black" vlink="black" alink="black">
-<table align = "center" width = "70%" class="list">
+<body link="black" vlink="black" alink="black">
+
+<table style="width:85%" class="table table-bordered" align = "center" width = "70%">
+	
 	<tr>
 		<td width = "100" align = "center" height = "22" bgcolor="#F1E1E3">번호</td>
 		<td width = "400" align = "center" height = "22" bgcolor="#F1E1E3">제목</td>
