@@ -1,5 +1,7 @@
 package controller.littlemeeting;
 
-public class DeleteLMController {
 
+
+public class DeleteLMController {
+	  
 }
