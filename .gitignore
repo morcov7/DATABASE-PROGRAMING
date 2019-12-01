@@ -1,5 +1,6 @@
 Servers/
 .metadata/
+.idea/
 
 # Compiled class file
 *.class
