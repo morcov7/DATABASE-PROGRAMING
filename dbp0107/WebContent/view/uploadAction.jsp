@@ -40,7 +40,16 @@
 		= new MultipartRequest(request, directory, maxSize, encoding,
 				new DefaultFileRenamePolicy());
 	
+	String fileName = multipartRequest.getOriginalFileName("file");
+	String fileRealName = multipartRequest.getFilesystemName("file");
 	
+	
+	
+	//new CertificationDAO().upload(fileName, fileRealName);
+	
+	out.write("파일명 : " + fileName + "<br");
+	out.write("파일명 : " + fileName + "<br");
+
 %>
 
 </body>
