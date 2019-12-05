@@ -86,5 +86,38 @@ public class MessengerBoardDAO {
 		}
 		return null;
 	}
+	
+	//메신저 연결 - 학과별 url 
+	public  MessengerBoard connectURL(int department_no, int messenger_connect_board_no, String customerId) throws SQLException {
+
+		// b.department_no = 1
+		String sql = "SELECT b.title, d.url, c.name AS customer_name "
+				+ "FROM messenger_connect_board b "
+				+ "LEFT JOIN department d ON b.department_no = d.department_no "
+				+ "INNER JOIN customer c ON b.customer_no = c.customer_no " 
+				+ "WHERE b.department_no = ? "
+				+ "AND b.messenger_connect_board_no = ? ";
+
+		Object[] param = new Object[] { department_no, messenger_connect_board_no };
+		jdbcUtil.setSqlAndParameters(sql, param);
+		
+		try {
+			ResultSet rs = jdbcUtil.executeQuery();
+			if (rs.next()) {
+				MessengerBoard board = new MessengerBoard(
+						rs.getString("title"),
+						rs.getString("url"),
+						rs.getString("customer_name"),
+						customerId);
+				
+				return board;
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally {
+			jdbcUtil.close();
+		}
+		return null;
+	}
 
 }
