@@ -4,12 +4,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>소모임 등록</title>
+<title>소모임 수정</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel=stylesheet href="<c:url value='/css/lm.css' />" type="text/css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script>
-function lmCreate() {
+function lmModify() {
 	if (form.littlemeeting_name.value == "") {
 		alert("소모임 이름을 입력하십시오.");
 		form.littlemeeting_name.focus();
@@ -43,45 +43,40 @@ function lmList(targetUri) {
 </head>
 <body bgcolor=#FFFFFF text=#000000 leftmargin=0 topmargin=0 marginwidth=0 marginheight=0>
 <br>
-<!-- registration form  -->
-<form name="form" method="POST" action="<c:url value='/littlemeeting/write' />">
+<!-- Update Form  -->
+<form name="form" method="POST" action="<c:url value='/littlemeeting/update' />">
+	<input type="hidden" name="littlemeeting_no" value="${Lm.littlemeeting_no}"/> 
   <table style="width: 100%">
     <tr>
       <td width="20"></td>
-	  <td>
-	  
-		 <center><h2>소모임 등록</h2></center>
-	    <!-- 커뮤니티 생성이 실패한 경우 exception 객체에 저장된 오류 메시지를 출력 -->
-        <c:if test="${creationFailed}">
-	      <font color="red"><c:out value="${exception.getMessage()}" /></font>
-	    </c:if>
+	  <td> 
+		 <center><h2>소모임  수정</h2></center>
 	    <table class="table table-bordered" style="margin-left:10%">
 	  	  <tr height="40">
 			<td width="150" align="center" bgcolor="#e8cdd1"> 소모임 이름</td>
 			<td width="250" bgcolor="ffffff" style="padding-left: 10">
 				<input type="text" style="width: 240" name="littlemeeting_name" 
-				 	<c:if test="${creationFailed}">value="${littlemeeting.littlemeeting_name}"</c:if>>
+				 	value="${Lm.littlemeeting_name}">
 			</td>
 		  </tr>
 	  	  <tr height="40">
 			<td width="150" align="center" bgcolor="#e8cdd1">소모임 소개 </td>
 			<td width="250" bgcolor="ffffff" style="padding-left: 10">
 				<input type="text" style="width: 240" name="title" 
-					<c:if test="${creationFailed}">value="${littlemeeting.title}"</c:if>>
+					value="${Lm.title}">
 			</td>
 		  </tr>	
 		  <tr height="40">
 			<td width="150" align="center" bgcolor="#e8cdd1">소모임  내용</td>
 			<td width="250" bgcolor="ffffff" style="padding-left: 10">
 				<input type="text" style="width: 240" name="contents" 
-					<c:if test="${creationFailed}">value="${littlemeeting.contents}"</c:if>>
+					value="${Lm.contents}">
 			</td>
 		  </tr>	 
 		  <tr height="40">
 			<td width="150" align="center" bgcolor="#e8cdd1">소모임 희망인원</td>
 			<td width="250" bgcolor="ffffff" style="padding-left: 10">
-				<input type="text" style="width: 240" name="max_num" 
-					<c:if test="${creationFailed}">value="${littlemeeting.max_num}"</c:if>>
+				<input type="text" style="width: 240" name="max_num" value="${Lm.max_num}">
 			</td>
 		  </tr>	  
 	    </table>
@@ -89,7 +84,7 @@ function lmList(targetUri) {
 	    <table style="width: 100%">
 		  <tr>
 			<td align="left">
-			<input type="button" value="생성" onClick="lmCreate()"> &nbsp;
+			<input type="button" value="수정" onClick="lmModify()"> &nbsp;
 			<input type="button" value="소모임 목록" onClick="lmList('<c:url value='/littlemeeting/list' />')">
 			</td>
 		  </tr>
