@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import controller.Controller;
 import controller.customer.CustomerSessionUtils;
@@ -15,7 +16,7 @@ public class ShowHomeController implements Controller {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
-
+		HttpSession session = request.getSession(); 
 		if (!CustomerSessionUtils.hasLogined(request.getSession())) {
 			return "redirect:/customer/login/form"; // login form 요청으로 redirect
 		}
@@ -26,8 +27,11 @@ public class ShowHomeController implements Controller {
 
 		request.setAttribute("departList", departList);
 		request.setAttribute("curCustomerId", CustomerSessionUtils.getLoginCustomerId(request.getSession()));
-
-		return "/main.jsp";
+		
+		if (CustomerSessionUtils.isLoginCustomer("admin", session))
+			return "/main_admin.jsp";
+		else
+			return "/main.jsp";
 	}
 
 }

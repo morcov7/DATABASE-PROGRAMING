@@ -2,7 +2,7 @@
 <%@page import="java.util.*" %>
 <%@page import="model.*" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%-- <%@include file = "/main_banner.jsp"%>  --%>
+<%@include file = "/main_banner.jsp"%> 
 <%-- <%
 	@SuppressWarnings("unchecked") 
 	List<Community> commList = (List<Community>)request.getAttribute("commList");

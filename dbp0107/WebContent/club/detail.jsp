@@ -1,7 +1,7 @@
 <%@page contentType="text/html; charset=utf-8" %>
 <%@page import="model.*" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%-- <%@include file = "/main_banner.jsp"%>  --%>
+<%@include file = "/main_banner.jsp"%> 
 <html>
 <head>
 <title>동아리 세부정보</title>
