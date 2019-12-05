@@ -32,6 +32,11 @@ public class MessengerBoardManager {
       return board;
    }
    
+   public MessengerBoard connectURL(int department_no, int messenger_connect_board_no, String customerId) throws SQLException {
+	   MessengerBoard board = boardDAO.connectURL(department_no, messenger_connect_board_no, customerId);
+      return board;
+   }
+   
    public MessengerBoardDAO getBoardDAO() {
       return this.boardDAO;
    }
