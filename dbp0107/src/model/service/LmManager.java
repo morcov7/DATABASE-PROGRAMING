@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import model.Lm;
+import model.LmManage;
 import model.dao.LmDAO;
 
 public class LmManager {
@@ -69,5 +70,25 @@ public class LmManager {
 		return lmDAO.update(lm);
 	}
 	
+	//추가한 부분
+	//LmMan 생성
+	public int createLmMan(LmManage lman) throws SQLException {
+		// TODO Auto-generated method stub
+		return lmDAO.createLmMan(lman);
+	}
+
+	//LmMan 삭제
+	public int deleteLmMan(LmManage lman) throws SQLException {
+		// TODO Auto-generated method stub
+		return lmDAO.deleteLmMan(lman);
+	}
+
+	public int apply(LmManage lman)throws SQLException{
+		return lmDAO.apply(lman);
+	}
+	
+	public int cancel(int littlemeeting_no)throws SQLException{
+		return lmDAO.cancel(littlemeeting_no);
+	}
 	
 }
