@@ -1,11 +1,12 @@
 <%@page contentType="text/html; charset=utf-8" %>
 <%@page import="java.util.*, model.*" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@include file = "/main_banner.jsp" %> 
+<%@include file = "/main_banner.jsp"%> 
 <%@include file = "/view/department/main.jsp"%>   
+
 <html>
 <head>
-<title>소모임 상세정보</title>
+<title>소모임 신청완료</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <%-- <link rel=stylesheet href="<c:url value='/css/lm.css' />" type="text/css">
  --%>
@@ -62,37 +63,21 @@ a.meeing:hover:before,a.meeing:hover:after{
   <br>
   
   <center>
-  <h2>소모임 상세정보</h2>
+  <h2>소모임 신청</h2>
   </center>
   <br>
   <br>
   
   <dl class="row" style="margin-left:10%">
-     <dt class="col-sm-3">소모임명</dt>
-     <dd class="col-sm-9">${littlemeeting.littlemeeting_name}</dd>
-   
-     <dt class="col-sm-3">소개</dt>
-     <dd class="col-sm-9"> ${littlemeeting.title}</dd>
-        
-     <dt class="col-sm-3">내용</dt>
-     <dd class="col-sm-9">${littlemeeting.contents}</dd>
-        
-     <dt class="col-sm-3">작성일</dt>
-     <dd class="col-sm-9">${littlemeeting.createtime}</dd>
-     
-     <dt class="col-sm-3">희망인원</dt>
-     <dd class="col-sm-9">${littlemeeting.count}</dd>
-     
-     <dt class="col-sm-3">최대인원</dt>
-     <dd class="col-sm-9">${littlemeeting.max_num}</dd>
-         
+
+     <dt class="col-sm-3">신청상태</dt>
+     <dd class="col-sm-9">신청이 취소되었습니다.</dd>     
   </dl>
   
   <br>
   <div class="meeing text-right" > 
-     <a class="meeing" href="<c:url value='/littlemeeting/apply'>
-     		 <c:param name='littlemeeting_no' value='${littlemeeting.littlemeeting_no}'/>
-     		 </c:url>">신청</a>
+   <a class="meeing" href="<c:url value='/littlemeeting/list'>
+     		 </c:url>">목록</a>
   </div>
 </body>
 </html>

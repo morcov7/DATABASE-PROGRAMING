@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.Lm;
+import model.LmManage;
 
 public class LmDAO {
 	
@@ -62,6 +63,57 @@ public class LmDAO {
 		return 0;			
 	}
 	
+	//신청
+		public int apply(LmManage lman)throws SQLException{
+			
+			String sql = "UPDATE LITTLEMEETING "
+					+ "SET count = count + 1 "
+					+ "WHERE littlemeeting_no=?";
+		
+			Object[] param = new Object[] {lman.getLittlemeeting_no()};
+			
+			jdbcUtil.setSqlAndParameters(sql, param);
+		
+			try {
+				int result = jdbcUtil.executeUpdate();
+				return result;
+			} catch (Exception ex) {
+				jdbcUtil.rollback();
+				ex.printStackTrace();
+			} finally {		
+				jdbcUtil.commit();
+				jdbcUtil.close();	// resource 반환
+			}		
+			
+			return 0;	
+			
+		}
+
+		//취소
+		public int cancel(int littlemeeting_no)throws SQLException{
+			
+			String sql = "UPDATE LITTLEMEETING "
+					+ "SET count = count - 1 "
+					+ "WHERE littlemeeting_no=?";
+		
+			Object[] param = new Object[] {littlemeeting_no};
+			
+			jdbcUtil.setSqlAndParameters(sql, param);
+		
+			try {
+				int result = jdbcUtil.executeUpdate();
+				return result;
+			} catch (Exception ex) {
+				jdbcUtil.rollback();
+				ex.printStackTrace();
+			} finally {		
+				jdbcUtil.commit();
+				jdbcUtil.close();	// resource 반환
+			}		
+			
+			return 0;	
+			
+		}
 
 	//글 작성자만 delete권한을 갖고 있다. 
 	public int delete(int littlemeeting_no) throws SQLException {
@@ -200,4 +252,49 @@ public class LmDAO {
 		}		
 		return 0;
 	}
+	
+	//LM Manage 테이블 생성
+		public int createLmMan(LmManage lman) {
+			// TODO Auto-generated method stub
+
+			String sql = "INSERT INTO LITTLEMEETING_MANAGE(littlemeeting_no, join_check, apply_id ) "
+					+ "VALUES (?, ?, ?) ";
+			
+			Object[] param = new Object[] { lman.getLittlemeeting_no(), lman.getJoin_check(), lman.getApply_id() };
+							
+			jdbcUtil.setSqlAndParameters(sql, param);
+		// JDBCUtil 에 insert문과 매개 변수 설정
+						
+			
+			try {
+				int result = jdbcUtil.executeUpdate();
+				return result;
+			} catch (Exception ex) {
+				jdbcUtil.rollback();
+			ex.printStackTrace();
+			} finally {		
+				jdbcUtil.commit();
+				jdbcUtil.close();	// resource 반환
+			}		
+			return 0;			
+		}
+		
+		//LM Manage 테이블 삭제
+		public int deleteLmMan(LmManage lman) {
+			String sql = "DELETE FROM LITTLEMEETING_MANAGE WHERE littlemeeting_no = ? AND apply_id = ?";		
+			jdbcUtil.setSqlAndParameters(sql, new Object[] {lman.getLittlemeeting_no(), lman.getApply_id()});	// JDBCUtil에 delete문과 매개 변수 설정
+
+			String key[] = {"littlemeeting_no"};
+			try {
+				int result = jdbcUtil.executeUpdate(key);
+				return result;
+			} catch (Exception ex) {
+				jdbcUtil.rollback();
+			ex.printStackTrace();
+			} finally {		
+				jdbcUtil.commit();
+				jdbcUtil.close();	// resource 반환
+			}		
+			return 0;	
+		}
 }
