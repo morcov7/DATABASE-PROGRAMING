@@ -22,7 +22,10 @@ public class LoginController implements Controller {
          HttpSession session = request.getSession();
             session.setAttribute(CustomerSessionUtils.USER_SESSION_KEY, customerId);
             
-            return "redirect:/customer/list";         
+            return "redirect:/main";  
+            
+            
+            
       } catch (Exception e) {
          /* CustomerNotFoundException이나 PasswordMismatchException 발생 시
           * 다시 login form을 사용자에게 전송하고 오류 메세지도 출력

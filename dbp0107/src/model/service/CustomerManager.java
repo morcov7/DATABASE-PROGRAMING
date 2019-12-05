@@ -55,6 +55,16 @@ public class CustomerManager {
 		}		
 		return customer;
 	}
+	
+	public Customer viewCustomer(String customerId)
+			throws SQLException, CustomerNotFoundException {
+			Customer customer = customerDAO.viewCustomer(customerId);
+			
+			if (customer == null) {
+				throw new CustomerNotFoundException(customerId + "는 존재하지 않는 아이디입니다.");
+			}		
+			return customer;
+		}
 
 	public List<Customer> findCustomerList() throws SQLException {
 			return customerDAO.findCustomerList();

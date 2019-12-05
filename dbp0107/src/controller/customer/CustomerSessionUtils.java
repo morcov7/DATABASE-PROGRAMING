@@ -10,7 +10,7 @@ public class CustomerSessionUtils {
         String customerId = (String)session.getAttribute(USER_SESSION_KEY);
         return customerId;
     }
-
+    
     /* 로그인한 상태인지를 검사 */
     public static boolean hasLogined(HttpSession session) {
         if (getLoginCustomerId(session) != null) {
