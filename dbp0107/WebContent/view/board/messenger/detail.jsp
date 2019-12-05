@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@page import="model.*" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%-- <%@include file = "/main_banner.jsp"%>  --%>
+<%@include file = "/main_banner.jsp" %> 
 <%@include file = "/view/department/main.jsp"%>  
 <%
 	MessengerBoard board = (MessengerBoard)request.getAttribute("board");
