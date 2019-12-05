@@ -15,6 +15,7 @@ public class ShowMainController implements Controller{
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
+		
 		if (!CustomerSessionUtils.hasLogined(request.getSession())) {
 			return "redirect:/customer/login/form"; // login form 요청으로 redirect
 		}

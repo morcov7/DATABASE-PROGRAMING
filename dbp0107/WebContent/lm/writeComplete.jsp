@@ -1,8 +1,8 @@
 <%@page contentType="text/html; charset=utf-8" %>
 <%@page import="java.util.*, model.*" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@include file = "/main_banner.jsp"%>  
-<%@include file = "/view/department/main.jsp"%>   
+<%@include file = "/main_banner.jsp" %>  
+<%@include file = "/view/department/main.jsp" %>   
 <html>
 <head>
 <title>소모임 상세정보</title>
