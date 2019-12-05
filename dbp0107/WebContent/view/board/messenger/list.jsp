@@ -2,7 +2,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="java.util.*" %>
 <%@page import="model.MessengerBoard" %>
-<%-- <%@include file = "/main_banner.jsp"%>  --%>
+<%@include file = "/main_banner.jsp"%> 
 <%@include file = "/view/department/main.jsp"%>
 <!DOCTYPE html>
 <html>
