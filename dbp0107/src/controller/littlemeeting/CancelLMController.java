@@ -1,5 +1,5 @@
 package controller.littlemeeting;
 
-public class CalcelLMController {
+public class CancelLMController {
 
 }
