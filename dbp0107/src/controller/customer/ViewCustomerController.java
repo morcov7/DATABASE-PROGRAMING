@@ -21,7 +21,7 @@ public class ViewCustomerController implements Controller {
 		
 		Customer customer = null;
 		try {
-			customer = manager.findCustomer(customerId);	// 사용자 정보 검색
+			customer = manager.viewCustomer(customerId);	// 사용자 정보 검색
 		} catch (CustomerNotFoundException e) {				
 	        return "redirect:/customer/list";
 		}	

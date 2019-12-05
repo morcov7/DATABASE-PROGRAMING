@@ -13,8 +13,8 @@ public class Customer {
 	private String password;
 	private String name;
 	private String phone;
-	
 	private String email;
+	private String dept_name;
 
 	public Customer() { }		// 기본 생성자
 	
@@ -31,9 +31,24 @@ public class Customer {
 		this.phone = phone;
 		this.email = email;
 	}
+	
+	
+	
+	public Customer(int department_no, String customerId, String password, String name, String email, String phone) {
+		this.department_no = department_no;
+		this.customerId = customerId;
+		this.password = password;
+		this.name = name;
+		this.phone = phone;
+		this.email = email;
+	}
 
-
-
+	public Customer(String customerId, String password, String name, String email) {
+		this.customerId = customerId;
+		this.password = password;
+		this.name = name;
+		this.email = email;
+	}
 
 	public Customer(String customerId, String password, String name, String email, String phone) {
 		this.customerId = customerId;
@@ -42,7 +57,7 @@ public class Customer {
 		this.email = email;
 		this.phone = phone;
 	}
-	
+
 	public Customer(String customerId, String password) {
 		super();
 		this.customerId = customerId;
@@ -55,13 +70,16 @@ public class Customer {
         this.email = updateCustomer.email;
         this.phone = updateCustomer.phone;
     }
-	
-	
-	
-	
-	
-	
-	
+
+	public Customer(String customerId, String password, String name, String email, String phone, String dept_name) {
+		this.customerId = customerId;
+		this.password = password;
+		this.name = name;
+		this.phone = phone;
+		this.email = email;
+		this.dept_name = dept_name;
+	}
+
 	public int getCustomer_no() {
 		return customer_no;
 	}
@@ -156,6 +174,15 @@ public class Customer {
 
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+
+	
+	public String getDept_name() {
+		return dept_name;
+	}
+
+	public void setDept_name(String dept_name) {
+		this.dept_name = dept_name;
 	}
 
 	/* 비밀번호 검사 */

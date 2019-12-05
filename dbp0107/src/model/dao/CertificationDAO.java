@@ -18,18 +18,19 @@ public class CertificationDAO {
 		Object[] param = new Object[] { certification.getCertification_no(),
 				certification.getAcceptance_letter_certify(), certification.getTuition_payment_certify() };
 
-		jdbcUtil.setSqlAndParameters(sql, param); // JDBCUtil ¿¡ insert¹®°ú ¸Å°³ º¯¼ö ¼³Á¤
+		jdbcUtil.setSqlAndParameters(sql, param); // JDBCUtil ì— insertë¬¸ê³¼ ë§¤ê°œ ë³€ìˆ˜ ì„¤ì •
 
 		try {
-			int result = jdbcUtil.executeUpdate(); // insert ¹® ½ÇÇà
+			int result = jdbcUtil.executeUpdate(); // insert ë¬¸ ì‹¤í–‰
 			return result;
 		} catch (Exception ex) {
 			jdbcUtil.rollback();
 			ex.printStackTrace();
 		} finally {
 			jdbcUtil.commit();
-			jdbcUtil.close(); // resource ¹İÈ¯
+			jdbcUtil.close(); // resource ë°˜í™˜
 		}
 		return 0;
 	}
+
 }

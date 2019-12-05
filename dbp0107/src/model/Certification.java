@@ -72,5 +72,4 @@ public class Certification {
 		this.certification_check = certification_check;
 	}
 	
-	
 }

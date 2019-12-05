@@ -1,69 +1,95 @@
 <%@page contentType="text/html; charset=utf-8" %>
 <%@page import="java.util.*, model.*" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@include file = "/main_banner.jsp"%> 
+<%@include file = "/view/department/main.jsp"%>   
 <html>
 <head>
 <title>소모임 상세정보</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <%-- <link rel=stylesheet href="<c:url value='/css/lm.css' />" type="text/css">
  --%>
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+ <style>
+
+a.meeing {
+   width:100px;
+    background-color: #a1304e;
+    border: none;
+    color:#fff;
+    padding: 15px 0;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 4px;
+    cursor: pointer;
+       text-align: center;
+   font size: 3.0em;
+}
+
+a.meeing:hover{
+  background:#fff;
+  color:#a13042;
+}
+a.meeing:before,a.meeing:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: #a13042;
+  transition:400ms ease all;
+}
+a.meeing:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+a.meeing:hover:before,a.meeing:hover:after{
+  width:100%;
+  transition:800ms ease all;
+}
+
+</style>
+ 
+ 
+ 
  </head>
-<body bgcolor=#FFFFFF text=#000000 leftmargin=0 topmargin=0 marginwidth=0 marginheight=0>
-<br>
-<table style="width:100%">
-  <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
-  <tr>
-   <td width="20"></td>
-   <td>
-     <table>
-      <tr>
-        <td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>소모임 상세정보</b>&nbsp;&nbsp;</td>
-      </tr>
-     </table>  
-     <br>        
-     <table style="background-color: YellowGreen">
-      <tr>
-        <td width="190" align="center" bgcolor="E6ECDE" height="22">소모임 이름</td>
-        <td width="190" align="center" bgcolor="ffffff" height="20">
-           ${littlemeeting.littlemeeting_name}      
-        </td>
-      </tr> 
-      <tr>
-        <td width="200" align="center" bgcolor="E6ECDE">소모임 소개</td>
-        <td width="190" align="center" bgcolor="ffffff" height="20">
-           ${littlemeeting.title}      
-        </td>
-      </tr>
-      <tr>
-        <td width="200" align="center" bgcolor="E6ECDE">소모임 내용</td>
-        <td width="190" align="center" bgcolor="ffffff" height="20">
-           ${littlemeeting.contents}      
-        </td>
-      </tr>
-      <tr>  
-        <td width="200" align="center" bgcolor="E6ECDE">작성 시간</td>
-        <td width="190" align="center" bgcolor="ffffff" height="20">
-           ${littlemeeing.createtime}      
-        </td>
-      </tr>
-      <tr>
-        <td width="200" align="center" bgcolor="E6ECDE">현재 정원</td>
-        <td width="190" align="center" bgcolor="ffffff" height="20">
-           ${littlemeeting.count}      
-        </td>
-      </tr>
-      <tr>
-        <td width="200" align="center" bgcolor="E6ECDE">최대 정원</td>
-        <td width="200" align="center" bgcolor="ffffff" height="20">
-          ${littlemeeting.max_num}
-        </td>
-      </tr>   
-     </table>
-     <br>  
-     <a href="<c:url value='/littlemeeting/apply' />"> 신청</a>
+ <body bgcolor=#FFFFFF text=#000000 leftmargin=0 topmargin=0 marginwidth=0 marginheight=0>
+  <br>
+  
+  <center>
+  <h2>소모임 상세정보</h2>
+  </center>
+  <br>
+  <br>
+  
+  <dl class="row" style="margin-left:10%">
+     <dt class="col-sm-3">소모임명</dt>
+     <dd class="col-sm-9">${littlemeeting.littlemeeting_name}</dd>
+   
+     <dt class="col-sm-3">소개</dt>
+     <dd class="col-sm-9"> ${littlemeeting.title}</dd>
+        
+     <dt class="col-sm-3">내용</dt>
+     <dd class="col-sm-9">${littlemeeting.contents}</dd>
+        
+     <dt class="col-sm-3">작성일</dt>
+     <dd class="col-sm-9">${littlemeeting.createtime}</dd>
      
-   </td>
-  </tr>
-</table>  
+     <dt class="col-sm-3">희망인원</dt>
+     <dd class="col-sm-9">${littlemeeting.count}</dd>
+     
+     <dt class="col-sm-3">최대인원</dt>
+     <dd class="col-sm-9">${littlemeeting.max_num}</dd>
+         
+  </dl>
+  
+  <br>
+  <div class="meeing text-right" > 
+     <a class="meeing" href="<c:url value='/littlemeeting/apply' />"> 신청</a></div>
 </body>
 </html>
