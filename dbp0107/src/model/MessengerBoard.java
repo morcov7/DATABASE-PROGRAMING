@@ -10,6 +10,8 @@ public class MessengerBoard {
 	private int application_check;  //**
 	private int department_no;
 	private String customer_name;
+	private String customerId; 
+	private String url;
 	
 	public MessengerBoard() {}
 
@@ -46,7 +48,14 @@ public class MessengerBoard {
 		this.customer_name = customer_name;
 	}
 	
-	
+	//Ω≈√ª
+	public MessengerBoard(String title, String url, String customer_name, String customerId) {
+		//super();
+		this.title = title;
+		this.url = url;
+		this.customer_name = customer_name;
+		this.setCustomerId(customerId);
+	}
 	
 	
 	public int getMessenger_connect_board_no() {
@@ -105,5 +114,20 @@ public class MessengerBoard {
 		this.customer_name = customer_name;
 	}
 	
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
+	public String getCustomerId() {
+		return customerId;
+	}
+
+	public void setCustomerId(String customerId) {
+		this.customerId = customerId;
+	}
 	
 }

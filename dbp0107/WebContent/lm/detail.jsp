@@ -1,7 +1,7 @@
 <%@page contentType="text/html; charset=utf-8" %>
 <%@page import="java.util.*, model.*" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@include file = "/main_banner.jsp"%> 
+<%@include file = "/main_banner.jsp" %> 
 <%@include file = "/view/department/main.jsp"%>   
 <html>
 <head>
@@ -90,6 +90,9 @@ a.meeing:hover:before,a.meeing:hover:after{
   
   <br>
   <div class="meeing text-right" > 
-     <a class="meeing" href="<c:url value='/littlemeeting/apply' />"> 신청</a></div>
+     <a class="meeing" href="<c:url value='/littlemeeting/apply'>
+     		 <c:param name='littlemeeting_no' value='${littlemeeting.littlemeeting_no}'/>
+     		 </c:url>">신청</a>
+  </div>
 </body>
 </html>
