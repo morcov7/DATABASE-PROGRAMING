@@ -28,7 +28,7 @@ MVC2 구조를 기반으로 Servlet JSP를 이용해 개발했습니다.
 
 ## 3. 비즈니스 로직
 
-![image-20200102214840476](C:\Users\slsle\AppData\Roaming\Typora\typora-user-images\image-20200102214840476.png)
+![이미지](./image/1.png)
 
 
 
@@ -36,9 +36,7 @@ MVC2 구조를 기반으로 Servlet JSP를 이용해 개발했습니다.
 
 ## 4. DB 스키마
 
-![image-20200102214600554](C:\Users\slsle\AppData\Roaming\Typora\typora-user-images\image-20200102214600554.png)
-
-
+![이미지](./image/2.png)
 
 
 
@@ -55,19 +53,14 @@ MVC2 구조를 기반으로 Servlet JSP를 이용해 개발했습니다.
 
 ## 6. 스크린샷
 
-![image-20200102222317295](C:\Users\slsle\AppData\Roaming\Typora\typora-user-images\image-20200102222317295.png)
+![이미지](./image/3.png)
 
-![image-20200102222337404](C:\Users\slsle\AppData\Roaming\Typora\typora-user-images\image-20200102222337404.png)
+![이미지](./image/4.png)
 
+![이미지](./image/5.png)
 
+![이미지](./image/6.png)
 
-![image-20200102222441352](C:\Users\slsle\AppData\Roaming\Typora\typora-user-images\image-20200102222441352.png)
+![이미지](./image/7.png)
 
-
-
-![image-20200102222738963](C:\Users\slsle\AppData\Roaming\Typora\typora-user-images\image-20200102222738963.png)
-
-
-
-![image-20200102222811266](C:\Users\slsle\AppData\Roaming\Typora\typora-user-images\image-20200102222811266.png)
-
+![이미지](./image/8.png)
