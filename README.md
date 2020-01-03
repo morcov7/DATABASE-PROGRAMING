@@ -9,7 +9,7 @@
 
 ## 1. 사용기술
 
-MVC2 구조를 기반으로 Servlet JSP를 이용해 개발했습니다.
+MVC 구조를 기반으로 JSP를 이용해 개발했습니다.
 
 - 언어 : JSP, Javascript, JSON, HTML5, CSS, Bootstrap
 - 개발 환경 : Eclipse, oracle/SQL developer, Tomcat, ERwin
