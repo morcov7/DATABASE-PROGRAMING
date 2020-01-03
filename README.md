@@ -42,6 +42,8 @@ MVC 구조를 기반으로 JSP를 이용해 개발했습니다.
 
 <br>
 
+<br>
+
 ## 5. 주요 기능
 
 ### 1) 메신저 연결
@@ -49,18 +51,22 @@ MVC 구조를 기반으로 JSP를 이용해 개발했습니다.
 ### 3) 소모임
 ### 4) 학과별 공지사항
 
+<br>
 
-
-
+<br>
 
 ## 6. 스크린샷
 ### 로그인화면
 <img src="./image/3.png" alt="로그인화면" style="zoom:67%;" />
 <br>
+
 ### 회원가입
+
+
+
 <img src="./image/4.png" alt="회원가입" style="zoom:67%;" />
 <br>
-### 동아리추천
+
 
 #### 1) 학과동아리 추천
 
@@ -75,8 +81,16 @@ MVC 구조를 기반으로 JSP를 이용해 개발했습니다.
 ### 회원list
 <img src="./image/7.png" alt="회원list" style="zoom:67%;" />
 <br>
+
 ### 회원detail
+
+
+
 <img src="./image/8.png" alt="회원detail" style="zoom:67%;" />
 <br>
-### 회원수정
-<img src="./image/9.png" alt="회원수정" style="zoom:67%;" />
+
+### 회원 수정
+
+
+
+<img src="./image/9.PNG" alt="회원수정" style="zoom:67%;" />
